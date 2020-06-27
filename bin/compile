@@ -5,8 +5,11 @@ set -ex
 BUILD_DIR=$1
 INSTALL_DIR="${BUILD_DIR}/vendor/libreoffice"
 SHARE_PATH="${INSTALL_DIR}/opt/libreoffice6.4/share"
+PROGRAM_PATH="${INSTALL_DIR}/opt/libreoffice6.4/program"
 
 cd "$SHARE_PATH"
 for d in $(ls | grep -v registry); do
   rm -rf "$d"
 done
+
+rm -rf "$PROGRAM_PATH"/python*
